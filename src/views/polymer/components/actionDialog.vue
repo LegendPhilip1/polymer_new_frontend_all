@@ -40,6 +40,7 @@ const handleConfirm = (formEl: FormInstance | undefined) => {
   formEl.validate(valid => {
     if (valid) {
       const _data = { ...toRaw(polymerForm) };
+      _data.atmosphere = _data.atmosphere[0];
       const _api = data => {
         if (data.id) {
           return putPolymerData(data.id, data);

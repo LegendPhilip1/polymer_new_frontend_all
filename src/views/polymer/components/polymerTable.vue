@@ -67,6 +67,7 @@ const validateAndAddColumn = () => {
     // 如果符合要求，执行添加列的操作
     state.RecordingnewColumn.name = newColumn.value.name;
     addColumn();
+    addColumnModalVisible.value = false;
   }
 };
 
@@ -309,7 +310,7 @@ const exportExcel = () => {
   res.unshift(columnList);
   const workSheet = utils.aoa_to_sheet(res);
   const workBook = utils.book_new();
-  utils.book_append_sheet(workBook, workSheet, "耐烧蚀材料信息");
+  utils.book_append_sheet(workBook, workSheet, "材料信息");
   writeFile(workBook, "Ply_Exp.xlsx");
 };
 
